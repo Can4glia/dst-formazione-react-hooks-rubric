@@ -1,38 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.303);
+    border-radius: 25px;
+    margin-top: 10px;
+    font-size: 15px;
+    height: 30px;
+    padding-left: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li {
+    list-style-type: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li.contact {
+    position: relative;
+    margin: 10px 0;
+    min-height: 60px;
 }
-
-.App-link {
-  color: #61dafb;
+button.del-btn {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 14px;
+    right: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.add-btn {
+    float: right;
+    margin-top: 15px;
+    border-radius: 2.5px;
+    color: black;
+    font-size: 10px;
+    height: 25px;
+    width: 100%;
+}
+.form-group {
+    margin-bottom: 30px;
 }

@@ -1,23 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Header from "./Header";
+import ContactForm from './ContactForm';
+import Contact from './Contact';
 
 function App() {
+  
+  const [rubric, setRubric] = useState([]);
+  const [id, setId] = useState(1);
+
+  const addContact = contact => {
+    // console.log(contact);
+    contact.id = id;
+    let rubric_copy = rubric.slice();
+    // console.log(contact);
+    rubric_copy = [...rubric_copy, contact];
+    setRubric(rubric_copy);
+    setId(id + 1);
+  }
+
+  const contacts = rubric.map((contact, i) =>
+    <Contact
+      key={i}
+      className='contact'
+      firstName={contact.firstName}
+      lastName={contact.lastName}
+      email={contact.email}
+      id={contact.id}
+      delete={() => setRubric(rubric.filter(item => item.id !== contact.id))}
+    />
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <ContactForm
+        add={addContact}
+      />
+      <ul>
+        {contacts}
+      </ul>
     </div>
   );
 }
