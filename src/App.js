@@ -12,12 +12,16 @@ function App() {
   const addContact = contact => {
     // console.log(contact);
     contact.id = id;
+    
     let rubric_copy = rubric.slice();
-    // console.log(contact);
+    console.log(contact);
     rubric_copy = [...rubric_copy, contact];
     setRubric(rubric_copy);
     setId(id + 1);
   }
+
+  console.log(rubric);
+
 
   const contacts = rubric.map((contact, i) =>
     <Contact
